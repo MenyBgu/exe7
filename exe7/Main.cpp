@@ -32,6 +32,7 @@ int main(){
 
 	int menu;
 	do{
+		here:
 		cout << "Please enter your choice: " << endl;
 		cout << "1. +" << endl;
 		cout << "2. -" << endl;
@@ -43,7 +44,14 @@ int main(){
 		cout << "8. ==" << endl;
 		cout << "9. []" << endl;
 		cout << "10. exit." << endl;
+		cout << ">";
 		cin >> menu;
+		if (cin.fail()){
+			cout << "wrong type. your menu is 1-10." << endl;
+			cin.clear();
+			cin.ignore(INT_MAX, '\n');
+			goto here;			//bring it to begining of menu.
+		}
 		switch (menu){
 		case 1:
 			cout << (one + two);
@@ -86,10 +94,11 @@ int main(){
 		case 10:
 			cout << "bye" << endl;
 			break;
-		default:
+		/*default:
 			cout << "wrong type. your menu is 1-10." << endl;
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
+			break;*/
 		}
 	} while (menu != 10);
 	system("pause");
