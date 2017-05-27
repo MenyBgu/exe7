@@ -11,7 +11,7 @@ int main(){
 	Vector one, two;
 	cout << "please enter the first vector (first,second): ";
 	cin >> one;
-	if (cin.fail()){
+	while (cin.fail()){
 		cout << "wrong, again first vector please: ";
 		cin.clear();
 		cin.ignore(INT_MAX, '\n');
@@ -21,8 +21,8 @@ int main(){
 	one.print();
 	cout << "please enter the second vector (first,second): ";
 	cin >> two;
-	if (cin.fail()){
-		cout << "wrong, again first vector please: ";
+	while (cin.fail()){
+		cout << "wrong, again second vector please: ";
 		cin.clear();
 		cin.ignore(INT_MAX, '\n');
 		cin >> two;
